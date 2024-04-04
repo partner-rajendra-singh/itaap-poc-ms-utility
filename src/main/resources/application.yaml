@@ -1,0 +1,48 @@
+spring:
+  application:
+    name: itaap-poc-ms-utility
+  profiles:
+    active: dev
+  kafka:
+    bootstrap-servers: localhost:9092
+    producer:
+      buffer-memory: 68157440
+      request:
+        timeout:
+          ms: 60000
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.apache.kafka.common.serialization.StringSerializer
+    listener:
+      ack-mode: MANUAL_IMMEDIATE
+    enable:
+      auto:
+        commit: false
+  security:
+    user:
+      name: admin
+      #Password is `user` encrypted using bcrypt
+      password: '{bcrypt}$2a$10$m0cee6HmZoKST1LHcKi01OT/pf7CmQ0NWNoGF.1kpDgZ94SbIjrNm'
+      roles: ACTUATOR_ADMIN
+
+server:
+  port: 8080
+
+#Audit Configuration 
+audit:
+  connector:
+    url: ${AUDIT_CONNECTOR_URL}
+    username: ${AUDIT_CONNECTOR_USERNAME} 
+    password: ${AUDIT_CONNECTOR_PASSWORD} 
+
+api:
+  security:
+    ignorePaths: /poc/**
+    users:
+      - username: AZURE_POC_USERNAME
+        password: '{bcrypt}$2a$12$oaKHsaIjO.g0uxh8MG4yIexT1XCRpyiNDGAvvnVYm3aHqCXFNFVbK'
+        roles:
+          - WRITE
+          - READ
+          - ACTUATOR_ADMIN
+  paths:
+    connectivity-check: /poc/connectivity-check

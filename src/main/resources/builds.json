@@ -1,0 +1,347 @@
+[
+  {
+    "_links": {
+      "self": {
+        "href": "https://dev.azure.com/PhilipsAgile/d089b3eb-2f87-4f6a-8770-ac25e8c38440/_apis/pipelines/1355?revision=4"
+      },
+      "web": {
+        "href": "https://dev.azure.com/PhilipsAgile/d089b3eb-2f87-4f6a-8770-ac25e8c38440/_build/definition?definitionId=1355"
+      }
+    },
+    "url": "https://dev.azure.com/PhilipsAgile/d089b3eb-2f87-4f6a-8770-ac25e8c38440/_apis/pipelines/1355?revision=4",
+    "id": 1355,
+    "revision": 4,
+    "name": "01 ITAAP-Deploy",
+    "folder": "\\Common-Apps"
+  },
+  {
+    "_links": {
+      "self": {
+        "href": "https://dev.azure.com/PhilipsAgile/d089b3eb-2f87-4f6a-8770-ac25e8c38440/_apis/pipelines/1829?revision=4"
+      },
+      "web": {
+        "href": "https://dev.azure.com/PhilipsAgile/d089b3eb-2f87-4f6a-8770-ac25e8c38440/_build/definition?definitionId=1829"
+      }
+    },
+    "url": "https://dev.azure.com/PhilipsAgile/d089b3eb-2f87-4f6a-8770-ac25e8c38440/_apis/pipelines/1829?revision=4",
+    "id": 1829,
+    "revision": 4,
+    "name": "ecom-customer-api-cd",
+    "folder": "\\Mule-apps-pipeline"
+  },
+  {
+    "_links": {
+      "self": {
+        "href": "https://dev.azure.com/PhilipsAgile/d089b3eb-2f87-4f6a-8770-ac25e8c38440/_apis/pipelines/1828?revision=3"
+      },
+      "web": {
+        "href": "https://dev.azure.com/PhilipsAgile/d089b3eb-2f87-4f6a-8770-ac25e8c38440/_build/definition?definitionId=1828"
+      }
+    },
+    "url": "https://dev.azure.com/PhilipsAgile/d089b3eb-2f87-4f6a-8770-ac25e8c38440/_apis/pipelines/1828?revision=3",
+    "id": 1828,
+    "revision": 3,
+    "name": "ecom-customer-api-ci",
+    "folder": "\\Mule-apps-pipeline"
+  },
+  {
+    "_links": {
+      "self": {
+        "href": "https://dev.azure.com/PhilipsAgile/d089b3eb-2f87-4f6a-8770-ac25e8c38440/_apis/pipelines/1798?revision=3"
+      },
+      "web": {
+        "href": "https://dev.azure.com/PhilipsAgile/d089b3eb-2f87-4f6a-8770-ac25e8c38440/_build/definition?definitionId=1798"
+      }
+    },
+    "url": "https://dev.azure.com/PhilipsAgile/d089b3eb-2f87-4f6a-8770-ac25e8c38440/_apis/pipelines/1798?revision=3",
+    "id": 1798,
+    "revision": 3,
+    "name": "ecom-customers-wrp-api-cd",
+    "folder": "\\Mule-apps-pipeline"
+  },
+  {
+    "_links": {
+      "self": {
+        "href": "https://dev.azure.com/PhilipsAgile/d089b3eb-2f87-4f6a-8770-ac25e8c38440/_apis/pipelines/1777?revision=3"
+      },
+      "web": {
+        "href": "https://dev.azure.com/PhilipsAgile/d089b3eb-2f87-4f6a-8770-ac25e8c38440/_build/definition?definitionId=1777"
+      }
+    },
+    "url": "https://dev.azure.com/PhilipsAgile/d089b3eb-2f87-4f6a-8770-ac25e8c38440/_apis/pipelines/1777?revision=3",
+    "id": 1777,
+    "revision": 3,
+    "name": "ecom-customers-wrp-api-ci",
+    "folder": "\\Mule-apps-pipeline"
+  },
+  {
+    "_links": {
+      "self": {
+        "href": "https://dev.azure.com/PhilipsAgile/d089b3eb-2f87-4f6a-8770-ac25e8c38440/_apis/pipelines/2779?revision=3"
+      },
+      "web": {
+        "href": "https://dev.azure.com/PhilipsAgile/d089b3eb-2f87-4f6a-8770-ac25e8c38440/_build/definition?definitionId=2779"
+      }
+    },
+    "url": "https://dev.azure.com/PhilipsAgile/d089b3eb-2f87-4f6a-8770-ac25e8c38440/_apis/pipelines/2779?revision=3",
+    "id": 2779,
+    "revision": 3,
+    "name": "itaap-digitalit-ecom-customer-api",
+    "folder": "\\DigitalIT-Apps\\Ecommerce-Apps\\Customer API"
+  },
+  {
+    "_links": {
+      "self": {
+        "href": "https://dev.azure.com/PhilipsAgile/d089b3eb-2f87-4f6a-8770-ac25e8c38440/_apis/pipelines/2818?revision=3"
+      },
+      "web": {
+        "href": "https://dev.azure.com/PhilipsAgile/d089b3eb-2f87-4f6a-8770-ac25e8c38440/_build/definition?definitionId=2818"
+      }
+    },
+    "url": "https://dev.azure.com/PhilipsAgile/d089b3eb-2f87-4f6a-8770-ac25e8c38440/_apis/pipelines/2818?revision=3",
+    "id": 2818,
+    "revision": 3,
+    "name": "itaap-digitalit-ecom-documents-api-CD",
+    "folder": "\\DigitalIT-Apps\\Ecommerce-Apps\\Documents API"
+  },
+  {
+    "_links": {
+      "self": {
+        "href": "https://dev.azure.com/PhilipsAgile/d089b3eb-2f87-4f6a-8770-ac25e8c38440/_apis/pipelines/2820?revision=3"
+      },
+      "web": {
+        "href": "https://dev.azure.com/PhilipsAgile/d089b3eb-2f87-4f6a-8770-ac25e8c38440/_build/definition?definitionId=2820"
+      }
+    },
+    "url": "https://dev.azure.com/PhilipsAgile/d089b3eb-2f87-4f6a-8770-ac25e8c38440/_apis/pipelines/2820?revision=3",
+    "id": 2820,
+    "revision": 3,
+    "name": "itaap-digitalit-ecom-documents-api",
+    "folder": "\\DigitalIT-Apps\\Ecommerce-Apps\\Documents API"
+  },
+  {
+    "_links": {
+      "self": {
+        "href": "https://dev.azure.com/PhilipsAgile/d089b3eb-2f87-4f6a-8770-ac25e8c38440/_apis/pipelines/2791?revision=2"
+      },
+      "web": {
+        "href": "https://dev.azure.com/PhilipsAgile/d089b3eb-2f87-4f6a-8770-ac25e8c38440/_build/definition?definitionId=2791"
+      }
+    },
+    "url": "https://dev.azure.com/PhilipsAgile/d089b3eb-2f87-4f6a-8770-ac25e8c38440/_apis/pipelines/2791?revision=2",
+    "id": 2791,
+    "revision": 2,
+    "name": "itaap-digitalit-ecom-material-api-CD",
+    "folder": "\\DigitalIT-Apps\\Ecommerce-Apps\\Material API"
+  },
+  {
+    "_links": {
+      "self": {
+        "href": "https://dev.azure.com/PhilipsAgile/d089b3eb-2f87-4f6a-8770-ac25e8c38440/_apis/pipelines/2790?revision=3"
+      },
+      "web": {
+        "href": "https://dev.azure.com/PhilipsAgile/d089b3eb-2f87-4f6a-8770-ac25e8c38440/_build/definition?definitionId=2790"
+      }
+    },
+    "url": "https://dev.azure.com/PhilipsAgile/d089b3eb-2f87-4f6a-8770-ac25e8c38440/_apis/pipelines/2790?revision=3",
+    "id": 2790,
+    "revision": 3,
+    "name": "itaap-digitalit-ecom-material-api",
+    "folder": "\\DigitalIT-Apps\\Ecommerce-Apps\\Material API"
+  },
+  {
+    "_links": {
+      "self": {
+        "href": "https://dev.azure.com/PhilipsAgile/d089b3eb-2f87-4f6a-8770-ac25e8c38440/_apis/pipelines/2799?revision=2"
+      },
+      "web": {
+        "href": "https://dev.azure.com/PhilipsAgile/d089b3eb-2f87-4f6a-8770-ac25e8c38440/_build/definition?definitionId=2799"
+      }
+    },
+    "url": "https://dev.azure.com/PhilipsAgile/d089b3eb-2f87-4f6a-8770-ac25e8c38440/_apis/pipelines/2799?revision=2",
+    "id": 2799,
+    "revision": 2,
+    "name": "itaap-digitalit-ecom-materialexclusion-api-CD",
+    "folder": "\\DigitalIT-Apps\\Ecommerce-Apps\\MaterialExclusion API"
+  },
+  {
+    "_links": {
+      "self": {
+        "href": "https://dev.azure.com/PhilipsAgile/d089b3eb-2f87-4f6a-8770-ac25e8c38440/_apis/pipelines/2798?revision=2"
+      },
+      "web": {
+        "href": "https://dev.azure.com/PhilipsAgile/d089b3eb-2f87-4f6a-8770-ac25e8c38440/_build/definition?definitionId=2798"
+      }
+    },
+    "url": "https://dev.azure.com/PhilipsAgile/d089b3eb-2f87-4f6a-8770-ac25e8c38440/_apis/pipelines/2798?revision=2",
+    "id": 2798,
+    "revision": 2,
+    "name": "itaap-digitalit-ecom-materialexclusion-api",
+    "folder": "\\DigitalIT-Apps\\Ecommerce-Apps\\MaterialExclusion API"
+  },
+  {
+    "_links": {
+      "self": {
+        "href": "https://dev.azure.com/PhilipsAgile/d089b3eb-2f87-4f6a-8770-ac25e8c38440/_apis/pipelines/2281?revision=2"
+      },
+      "web": {
+        "href": "https://dev.azure.com/PhilipsAgile/d089b3eb-2f87-4f6a-8770-ac25e8c38440/_build/definition?definitionId=2281"
+      }
+    },
+    "url": "https://dev.azure.com/PhilipsAgile/d089b3eb-2f87-4f6a-8770-ac25e8c38440/_apis/pipelines/2281?revision=2",
+    "id": 2281,
+    "revision": 2,
+    "name": "itaap-digitalit-hybrideventssplas-CD",
+    "folder": "\\DigitalIT-Apps\\HybridEventsSplash"
+  },
+  {
+    "_links": {
+      "self": {
+        "href": "https://dev.azure.com/PhilipsAgile/d089b3eb-2f87-4f6a-8770-ac25e8c38440/_apis/pipelines/2280?revision=2"
+      },
+      "web": {
+        "href": "https://dev.azure.com/PhilipsAgile/d089b3eb-2f87-4f6a-8770-ac25e8c38440/_build/definition?definitionId=2280"
+      }
+    },
+    "url": "https://dev.azure.com/PhilipsAgile/d089b3eb-2f87-4f6a-8770-ac25e8c38440/_apis/pipelines/2280?revision=2",
+    "id": 2280,
+    "revision": 2,
+    "name": "itaap-digitalit-hybrideventssplash",
+    "folder": "\\DigitalIT-Apps\\HybridEventsSplash"
+  },
+  {
+    "_links": {
+      "self": {
+        "href": "https://dev.azure.com/PhilipsAgile/d089b3eb-2f87-4f6a-8770-ac25e8c38440/_apis/pipelines/2811?revision=2"
+      },
+      "web": {
+        "href": "https://dev.azure.com/PhilipsAgile/d089b3eb-2f87-4f6a-8770-ac25e8c38440/_build/definition?definitionId=2811"
+      }
+    },
+    "url": "https://dev.azure.com/PhilipsAgile/d089b3eb-2f87-4f6a-8770-ac25e8c38440/_apis/pipelines/2811?revision=2",
+    "id": 2811,
+    "revision": 2,
+    "name": "itaap-digitalit-order-status-service-CD",
+    "folder": "\\DigitalIT-Apps\\order-status-service"
+  },
+  {
+    "_links": {
+      "self": {
+        "href": "https://dev.azure.com/PhilipsAgile/d089b3eb-2f87-4f6a-8770-ac25e8c38440/_apis/pipelines/2810?revision=2"
+      },
+      "web": {
+        "href": "https://dev.azure.com/PhilipsAgile/d089b3eb-2f87-4f6a-8770-ac25e8c38440/_build/definition?definitionId=2810"
+      }
+    },
+    "url": "https://dev.azure.com/PhilipsAgile/d089b3eb-2f87-4f6a-8770-ac25e8c38440/_apis/pipelines/2810?revision=2",
+    "id": 2810,
+    "revision": 2,
+    "name": "itaap-digitalit-order-status-service",
+    "folder": "\\DigitalIT-Apps\\order-status-service"
+  },
+  {
+    "_links": {
+      "self": {
+        "href": "https://dev.azure.com/PhilipsAgile/d089b3eb-2f87-4f6a-8770-ac25e8c38440/_apis/pipelines/2699?revision=2"
+      },
+      "web": {
+        "href": "https://dev.azure.com/PhilipsAgile/d089b3eb-2f87-4f6a-8770-ac25e8c38440/_build/definition?definitionId=2699"
+      }
+    },
+    "url": "https://dev.azure.com/PhilipsAgile/d089b3eb-2f87-4f6a-8770-ac25e8c38440/_apis/pipelines/2699?revision=2",
+    "id": 2699,
+    "revision": 2,
+    "name": "itaap-digitalit-repair-order-api-CD",
+    "folder": "\\DigitalIT-Apps\\RepairOrderAPI"
+  },
+  {
+    "_links": {
+      "self": {
+        "href": "https://dev.azure.com/PhilipsAgile/d089b3eb-2f87-4f6a-8770-ac25e8c38440/_apis/pipelines/2694?revision=3"
+      },
+      "web": {
+        "href": "https://dev.azure.com/PhilipsAgile/d089b3eb-2f87-4f6a-8770-ac25e8c38440/_build/definition?definitionId=2694"
+      }
+    },
+    "url": "https://dev.azure.com/PhilipsAgile/d089b3eb-2f87-4f6a-8770-ac25e8c38440/_apis/pipelines/2694?revision=3",
+    "id": 2694,
+    "revision": 3,
+    "name": "itaap-digitalit-repair-order-api",
+    "folder": "\\DigitalIT-Apps\\RepairOrderAPI"
+  },
+  {
+    "_links": {
+      "self": {
+        "href": "https://dev.azure.com/PhilipsAgile/d089b3eb-2f87-4f6a-8770-ac25e8c38440/_apis/pipelines/2251?revision=5"
+      },
+      "web": {
+        "href": "https://dev.azure.com/PhilipsAgile/d089b3eb-2f87-4f6a-8770-ac25e8c38440/_build/definition?definitionId=2251"
+      }
+    },
+    "url": "https://dev.azure.com/PhilipsAgile/d089b3eb-2f87-4f6a-8770-ac25e8c38440/_apis/pipelines/2251?revision=5",
+    "id": 2251,
+    "revision": 5,
+    "name": "itaap-digitalit-swmpsubscription-CD",
+    "folder": "\\DigitalIT-Apps\\swmpsubscription"
+  },
+  {
+    "_links": {
+      "self": {
+        "href": "https://dev.azure.com/PhilipsAgile/d089b3eb-2f87-4f6a-8770-ac25e8c38440/_apis/pipelines/2250?revision=5"
+      },
+      "web": {
+        "href": "https://dev.azure.com/PhilipsAgile/d089b3eb-2f87-4f6a-8770-ac25e8c38440/_build/definition?definitionId=2250"
+      }
+    },
+    "url": "https://dev.azure.com/PhilipsAgile/d089b3eb-2f87-4f6a-8770-ac25e8c38440/_apis/pipelines/2250?revision=5",
+    "id": 2250,
+    "revision": 5,
+    "name": "itaap-digitalit-swmpsubscription",
+    "folder": "\\DigitalIT-Apps\\swmpsubscription"
+  },
+  {
+    "_links": {
+      "self": {
+        "href": "https://dev.azure.com/PhilipsAgile/d089b3eb-2f87-4f6a-8770-ac25e8c38440/_apis/pipelines/2360?revision=2"
+      },
+      "web": {
+        "href": "https://dev.azure.com/PhilipsAgile/d089b3eb-2f87-4f6a-8770-ac25e8c38440/_build/definition?definitionId=2360"
+      }
+    },
+    "url": "https://dev.azure.com/PhilipsAgile/d089b3eb-2f87-4f6a-8770-ac25e8c38440/_apis/pipelines/2360?revision=2",
+    "id": 2360,
+    "revision": 2,
+    "name": "itaap-digitalit-taxservice-CD",
+    "folder": "\\DigitalIT-Apps\\taxservice"
+  },
+  {
+    "_links": {
+      "self": {
+        "href": "https://dev.azure.com/PhilipsAgile/d089b3eb-2f87-4f6a-8770-ac25e8c38440/_apis/pipelines/2359?revision=3"
+      },
+      "web": {
+        "href": "https://dev.azure.com/PhilipsAgile/d089b3eb-2f87-4f6a-8770-ac25e8c38440/_build/definition?definitionId=2359"
+      }
+    },
+    "url": "https://dev.azure.com/PhilipsAgile/d089b3eb-2f87-4f6a-8770-ac25e8c38440/_apis/pipelines/2359?revision=3",
+    "id": 2359,
+    "revision": 3,
+    "name": "itaap-digitalit-taxservice",
+    "folder": "\\DigitalIT-Apps\\taxservice"
+  },
+  {
+    "_links": {
+      "self": {
+        "href": "https://dev.azure.com/PhilipsAgile/d089b3eb-2f87-4f6a-8770-ac25e8c38440/_apis/pipelines/2745?revision=2"
+      },
+      "web": {
+        "href": "https://dev.azure.com/PhilipsAgile/d089b3eb-2f87-4f6a-8770-ac25e8c38440/_build/definition?definitionId=2745"
+      }
+    },
+    "url": "https://dev.azure.com/PhilipsAgile/d089b3eb-2f87-4f6a-8770-ac25e8c38440/_apis/pipelines/2745?revision=2",
+    "id": 2745,
+    "revision": 2,
+    "name": "itaap-digitalit-user-service-CD",
+    "folder": "\\DigitalIT-Apps\\user-service"
+  }
+]

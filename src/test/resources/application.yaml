@@ -1,0 +1,53 @@
+#If you use a database then uncomment below lines and update db properties accordingly
+spring:
+  profiles:
+    active: dev
+  application:
+    name: PROJECT_NAME
+  security:
+    user:
+      name: admin
+      #Password is `user` encrypted using bcrypt
+      password: '{bcrypt}$2a$10$m0cee6HmZoKST1LHcKi01OT/pf7CmQ0NWNoGF.1kpDgZ94SbIjrNm'
+      roles: ACTUATOR_ADMIN
+#  datasource:
+#    driver-class-name: org.postgresql.Driver
+#    url: jdbc:postgresql://${DB_HOST}:${DB_PORT}/${DB_NAME}${DB_OPTIONS:}
+#    username: ${DB_USER_NAME}
+#    password: ${DB_PASSWORD}
+#    properties:
+#      charSet: UTF-8
+#    hikari:
+#      minimumIdle: 2
+#      maximumPoolSize: 10
+#      idleTimeout: 10000
+#      poolName: {to-be-defined}HikariCP
+#      maxLifetime: 7200000
+#      connectionTimeout: 30000
+#  jpa:
+#    properties:
+#      hibernate:
+#        jdbc:
+#          lob:
+#            # silence the 'wall-of-text' - unnecessary exception throw about blob types
+#            non_contextual_creation: true
+
+server:
+  port: 8080
+
+#Audit Configuration 
+audit:
+  connector:
+    url: http://localhost:8085/audit
+    username: audit
+    password: audit 
+
+#management:
+#  endpoint:
+#    health:
+#      show-details: "always"
+#  endpoints:
+#    web:
+#      base-path: /
+#      exposure:
+#        include: health, info, prometheus

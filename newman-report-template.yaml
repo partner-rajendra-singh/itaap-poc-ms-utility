@@ -1,0 +1,85 @@
+parameters:
+ 
+ # REQUIRED This is postman Test Suite Name
+ - name: P_TEST_SUITE_NAME 
+   type: string
+   
+ # REQUIRED This is environment
+ - name: P_TEST_SUITE_ENV_NAME
+   type: string
+   
+ # REQUIRED This is postman Test Suite Name
+ - name: P_BROWSER_TITLE 
+   type: string
+   
+ # REQUIRED This is environment
+ - name: P_TITLE
+   type: string
+   
+
+
+steps:
+  - task: NodeTool@0
+    displayName: Node Set UP
+    inputs:
+      versionSpec: '14.x' 
+  - task: Npm@1
+    displayName: Install Newman
+    inputs:
+      command: 'custom'
+      customCommand: install -g newman
+      verbose: false
+      workingDir: $(System.DefaultWorkingDirectory)
+
+  - task: Npm@1
+    displayName: Install Newman Junit Reporter
+    inputs:
+      command: 'custom'
+      verbose: false
+      customCommand: 'install newman-reporter-junitfull -g'
+      workingDir: $(System.DefaultWorkingDirectory)
+
+  - task: Npm@1
+    displayName: Install Newman HTML
+    inputs:
+      command: 'custom'
+      verbose: false
+      customCommand: 'install newman-reporter-htmlextra -g'
+      workingDir: $(System.DefaultWorkingDirectory)
+
+  - checkout: self
+    displayName: Checkout Postman Test Collection
+    submodules: true
+    persistCredentials: true
+    clean: true  
+    
+  - task: CmdLine@2
+    displayName: Run ms-utility Tests
+    continueOnError: true 
+    inputs:
+      script: |        
+        cd itaap-poc-ms-utility
+        newman run ${{parameters.P_TEST_SUITE_NAME}} -e  ${{parameters.P_TEST_SUITE_ENV_NAME}} -r cli,junitfull,htmlextra --reporter-htmlextra-browserTitle ${{parameters.P_BROWSER_TITLE}} --reporter-htmlextra-title ${{parameters.P_TITLE}}  --reporter-htmlextra-showEnvironmentData --reporter-htmlextra-showGlobalData --reporter-junitfull-export junitReport.xml --reporter-htmlextra-export report.html
+      workingDir: $(System.DefaultWorkingDirectory)
+  - task: Bash@3
+    displayName: Trace ms-utility artifact
+    inputs:
+      targetType: 'inline'
+      script: |
+        # Write your commands here
+        echo  $PWD
+        cd itaap-poc-ms-utility
+        ls -lart
+  - task: PublishTestResults@2
+    displayName: Publish Test Results
+    continueOnError: true
+    inputs:
+      testResultsFormat: 'JUnit'
+      testResultsFiles: $(System.DefaultWorkingDirectory)/itaap-poc-ms-utility/junitReport.xml
+
+  - task: PublishBuildArtifacts@1
+    displayName: Publish newman html report
+    continueOnError: true
+    inputs:
+      pathToPublish: '$(System.DefaultWorkingDirectory)/itaap-poc-ms-utility/report.html'
+      artifactName: NewmanAPIReport

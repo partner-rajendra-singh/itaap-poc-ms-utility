@@ -1,0 +1,88 @@
+variables:
+  - name : Version.MajorMinor
+    value: 1.0
+  - name: Version.Revision
+    value: $[counter(variables['Version.MajorMinor'], 0)]
+  - group: AWS_Credentials
+  - group: environment-itaap-dev
+
+name: $(Version.MajorMinor).$(Version.Revision)
+
+resources:
+  repositories:
+    - repository: self
+      type: GitHub
+      name: philips-internal/itaap-poc-ms-utility
+      connection: philips-internal
+      pr:
+        branches:
+          include:
+            - main
+        paths:
+          exclude:
+            - README.md
+            - .gitignore
+            - azure-pipeline.yaml
+            - azure-pipeline-CD.yaml
+      trigger:
+        branches:
+          include:
+            - main
+        paths:
+          exclude:
+            - README.md
+            - .gitignore
+            - azure-pipeline.yaml
+            - azure-pipeline-CD.yaml
+pool:
+  vmImage: ubuntu-latest
+
+steps:
+  - checkout: self
+    persistCredentials: true
+
+  - task: Gradle@2
+    inputs:
+      workingDirectory: ''
+      gradleWrapperFile: 'gradlew'
+      gradleOptions: '-Xmx3072m'
+      javaHomeOption: 'JDKVersion'
+      jdkVersionOption: '1.11'
+      publishJUnitResults: true
+      options: ''
+      testRunTitle: 'Unit-Tests-$(Build.Repository.Name)-$(Build.BuildNumber)'
+      testResultsFiles: '**/TEST-*.xml'
+      tasks: 'clean build -PitaapMsComVersion=$(ITAAP_MS_DEV_COM_VERSION) -PitaapMsDevBaseVersion=$(ITAAP_MS_DEV_BASE_VERSION)  -PitaapAuditClientVersion=$(ITAAP_AUIDT_CLIENT_VERSION)'
+
+  - task: PublishBuildArtifacts@1
+    condition: succeededOrFailed()
+    inputs:
+      pathToPublish: $(Build.SourcesDirectory)/build/reports/tests/test
+      artifactName: BuildOutputs
+
+  - task: PublishCodeCoverageResults@1
+    inputs:
+      codeCoverageTool: 'JaCoCo'
+      summaryFileLocation: '$(Build.SourcesDirectory)/build/reports/jacoco/test/jacocoTestReport.xml'
+      reportDirectory: '$(Build.SourcesDirectory)/build/reports/jacoco/test/html'
+
+  - task: Docker@2
+    condition: and(ne(variables['Build.Reason'], 'PullRequest')
+      , eq(variables['Build.SourceBranch'], 'refs/heads/main'))
+  - template: docker-build-push.yaml
+    parameters:
+      ImageName: itaap-poc-ms-utility
+      AddImageTag: $(Version.MajorMinor).$(Version.Revision)
+      Registry: 762168133611.dkr.ecr.eu-west-1.amazonaws.com/itaap
+      Namespace: poc
+      Dockerfile: 'Dockerfile'
+
+  - task: Bash@3
+    condition: and(ne(variables['Build.Reason'], 'PullRequest')
+      , eq(variables['Build.SourceBranch'], 'refs/heads/main'))
+    inputs:
+      targetType: 'inline'
+      script: |
+        git tag $(Version.MajorMinor).$(Version.Revision)
+        git push origin $(Version.MajorMinor).$(Version.Revision)
+      workingDirectory: $(Build.SourcesDirectory)

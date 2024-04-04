@@ -1,0 +1,68 @@
+server:
+  port: 9083
+
+api:
+  security:
+    ignorePaths: /poc/**
+    users:
+      - username: AZURE_POC_USERNAME
+        password: '{bcrypt}$2a$12$oaKHsaIjO.g0uxh8MG4yIexT1XCRpyiNDGAvvnVYm3aHqCXFNFVbK'
+        roles:
+          - WRITE
+          - READ
+          - ACTUATOR_ADMIN
+  paths:
+    connectivity-check: /poc/connectivity-check
+    connectivity-history: /poc/connectivity-check/history
+    view-history: /poc/connectivity-check/history/{id}
+Spring:
+  liquibase:
+    changeLog: classpath:dbchangelog.xml
+    enabled: true
+  datasource:
+    url: jdbc:postgresql://localhost:5432/poc_db
+#    url: jdbc:postgresql://reliably-magnetic-jay.a1.pgedge.io:5432/microservice_utility_db?sslmode=require
+    username: postgres
+#    username: admin
+    password: postgres
+#    password: JC13kCcCh1s99V7CN39PF9K2
+    properties:
+      charSet: UTF-8
+    hikari:
+      minimumIdle: 2
+      maximumPoolSize: 5
+      idleTimeout: 10000
+      poolName: HikariCP
+      maxLifetime: 600000
+      connectionTimeout: 30000
+  jpa:
+    properties:
+      hibernate:
+        hbm2ddl:
+          auto: none
+        default_schema: poc
+#        default_schema: microservice_schema
+        show_sql: false
+        enable_lazy_load_no_trans: true
+
+audit:
+  connector:
+    url: localhost:8080
+    username: admin
+    password: admin
+
+azure:
+  org : PhilipsAgile/56.0 EADI
+  urls:
+    add-variable-group: "https://dev.azure.com/{{organization}}/_apis/distributedtask/variablegroups"
+    get-variable-group: "https://dev.azure.com/{{organization}}/_apis/distributedtask/variablegroups"
+    get-all-variable-group: "https://dev.azure.com/{{organization}}/_apis/distributedtask/variablegroups"
+    delete-variable-group: "https://dev.azure.com/{{organization}}/_apis/distributedtask/variablegroups/{{id}}"
+    update-variable-group: "https://dev.azure.com/{{organization}}/_apis/distributedtask/variablegroups/{{id}}"
+    all-build-folders: "https://dev.azure.com/{{organization}}/_apis"
+    all-folders: "https://dev.azure.com/{{organization}}/_apis/build/folders"
+    runs-for-build-id: "https://dev.azure.com/{{organization}}/_apis/pipelines/{{buildID}}/runs"
+    get-build-timeline: "https://dev.azure.com/{{organization}}/_apis/build/builds/{{buildID}}/timeline/"
+  pat: 7ymfiqfv5jupkvveki5t7a4qnrt3mu3ddbwmce4houlyaencuaga
+  var-grp-type: Vsts
+

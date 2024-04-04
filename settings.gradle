@@ -1,0 +1,14 @@
+pluginManagement {
+    repositories {
+        gradlePluginPortal()
+        maven {
+            //For local, env variables will be used for URL
+            url = System.getenv("AZURE_FEED_URL")
+            credentials {
+                username "AZURE_ARTIFACTS"
+                password System.getenv("AZURE_ARTIFACTS_ENV_ACCESS_TOKEN")
+            }
+        }
+    }
+}
+rootProject.name = 'itaap-poc-ms-utility'
