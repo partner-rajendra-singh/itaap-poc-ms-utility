@@ -63,6 +63,6 @@ azure:
     all-folders: "https://dev.azure.com/{{organization}}/_apis/build/folders"
     runs-for-build-id: "https://dev.azure.com/{{organization}}/_apis/pipelines/{{buildID}}/runs"
     get-build-timeline: "https://dev.azure.com/{{organization}}/_apis/build/builds/{{buildID}}/timeline/"
-  pat: 7ymfiqfv5jupkvveki5t7a4qnrt3mu3ddbwmce4houlyaencuaga
+  pat:
   var-grp-type: Vsts
 
