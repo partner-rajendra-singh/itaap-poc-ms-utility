@@ -4,7 +4,6 @@ import com.philips.itaap.utility.constant.ApplicationConstants;
 import com.philips.itaap.utility.entity.ConnectivityHistory;
 import com.philips.itaap.utility.model.VerifyConnectionRequest;
 import com.philips.itaap.utility.model.VerifyConnectionResponse;
-import com.philips.itaap.utility.repository.UserRepo;
 import com.philips.itaap.utility.serivce.ConnectivityService;
 import com.philips.itaap.utility.serivce.NetworkUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,9 +19,6 @@ public class ConnectivityController {
 
     @Autowired
     private ConnectivityService connectivityService;
-
-    @Autowired
-    private UserRepo userRepo;
 
     @SuppressWarnings("rawtypes")
     @PostMapping("${api.paths.connectivity-check}")

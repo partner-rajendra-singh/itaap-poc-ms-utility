@@ -1,6 +1,5 @@
 package com.philips.itaap.utility.serivce;
 
-import com.philips.itaap.utility.config.AzureProperties;
 import com.philips.itaap.utility.dto.MicroservicesDTO;
 import com.philips.itaap.utility.entity.AccProd;
 import com.philips.itaap.utility.entity.Microservices;
@@ -22,9 +21,6 @@ public class MsService {
 
     @Autowired
     private MicroservicesRepo microservicesRepo;
-
-    @Autowired
-    private AzureProperties properties;
 
     public Microservices createOrUpdateMicroservice(MicroservicesDTO dto) {
         Microservices microservice = Microservices.builder()

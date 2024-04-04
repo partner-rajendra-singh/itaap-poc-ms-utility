@@ -2,10 +2,8 @@ package com.philips.itaap.utility.serivce;
 
 import com.philips.itaap.utility.constant.ApplicationConstants;
 import com.philips.itaap.utility.entity.ConnectivityHistory;
-import com.philips.itaap.utility.entity.User;
 import com.philips.itaap.utility.model.VerifyConnectionResponse;
 import com.philips.itaap.utility.repository.ConnectivityHistoryRepo;
-import com.philips.itaap.utility.repository.UserRepo;
 import lombok.extern.slf4j.XSlf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

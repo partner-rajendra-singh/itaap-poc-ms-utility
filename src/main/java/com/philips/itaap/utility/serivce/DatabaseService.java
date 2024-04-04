@@ -8,16 +8,12 @@ import com.philips.itaap.utility.repository.AccProdRepo;
 import com.philips.itaap.utility.repository.DeploymentRepo;
 import com.philips.itaap.utility.repository.MicroservicesRepo;
 import com.philips.itaap.utility.repository.NonProdRepo;
-import com.philips.itaap.utility.utils.Transformer;
 import lombok.extern.slf4j.XSlf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import reactor.core.publisher.Mono;
 
-import java.util.List;
-import java.util.Map;
-import java.util.Objects;
-import java.util.Optional;
+import java.util.*;
 import java.util.concurrent.atomic.AtomicReference;
 
 @Service
@@ -40,7 +36,7 @@ public class DatabaseService {
     private DeploymentRepo deploymentRepo;
 
     public Mono<Microservices> insertInDB(Map<Integer, List<Record>> map, Integer pipelineId, MicroservicesDTO dto) {
-        String name = dto.getName().toLowerCase().replace("-cd", "");
+        String name = dto.getName().toLowerCase(Locale.ROOT).replace("-cd", "");
         dto.setName(name);
         dto.setPipelineID(pipelineId);
 

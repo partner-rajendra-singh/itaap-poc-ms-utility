@@ -7,8 +7,6 @@ import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Size;
-import java.util.Date;
 
 @Entity
 @Data
@@ -16,6 +14,7 @@ import java.util.Date;
 @AllArgsConstructor
 @NoArgsConstructor
 @Table(name = "USERS_ASSIGNED_TASKS")
+@SuppressWarnings("PMD")
 public class UserTask {
     @Id
     @GeneratedValue(generator = "users_tasks_seq")

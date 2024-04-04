@@ -18,6 +18,7 @@ import java.util.Date;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
+@SuppressWarnings("PMD")
 public class Microservices {
     @Id
     @GeneratedValue(generator = "microservices_list_seq")
