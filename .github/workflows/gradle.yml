@@ -54,11 +54,10 @@ jobs:
         password: ${{ secrets.DOCKERHUB_PASSWORD }}
         
     - name: Build Docker image
-      run: docker build -t your-dockerhub-username/your-image-name:latest .
+      run: docker build -t rajendra131094/itaap-poc-ms-utility:latest
       
     - name: Push Docker image
-      run: docker push your-dockerhub-username/your-image-name:latest
-
+      run: docker push rajendra131094/itaap-poc-ms-utility:latest
 
   dependency-submission:
 
