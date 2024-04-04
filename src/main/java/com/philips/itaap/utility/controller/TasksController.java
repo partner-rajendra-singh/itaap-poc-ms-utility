@@ -1,8 +1,9 @@
 package com.philips.itaap.utility.controller;
 
-import com.philips.itaap.ms.dev.base.exception.ServiceException;
+
 import com.philips.itaap.utility.dto.TaskDTO;
 import com.philips.itaap.utility.entity.Task;
+import com.philips.itaap.utility.exception.ServiceException;
 import com.philips.itaap.utility.model.enums.Status;
 import com.philips.itaap.utility.serivce.TasksService;
 import lombok.extern.slf4j.XSlf4j;
@@ -64,6 +65,6 @@ public class TasksController {
         if (log.isErrorEnabled()) {
             log.error("handleValidationExceptions() : errorDesc -> {}", errorDesc);
         }
-        throw new ServiceException(ex.getStatus(), ex.getStatus().value(), errorDesc.toString());
+        throw new ServiceException(ex.getStatusCode(), ex.getStatusCode().value(), errorDesc.toString());
     }
 }

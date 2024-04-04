@@ -2,9 +2,10 @@ package com.philips.itaap.utility.config;
 
 import org.springframework.boot.autoconfigure.kafka.KafkaProperties;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.EnableAspectJAutoProxy;
 import org.springframework.http.client.reactive.ReactorClientHttpConnector;
 import org.springframework.kafka.core.reactive.ReactiveKafkaProducerTemplate;
-import org.springframework.stereotype.Component;
 import org.springframework.web.reactive.function.client.WebClient;
 import reactor.kafka.sender.SenderOptions;
 import reactor.netty.http.client.HttpClient;
@@ -12,12 +13,13 @@ import reactor.netty.http.client.HttpClient;
 import java.time.Duration;
 import java.util.Map;
 
-@Component
+@Configuration
+@EnableAspectJAutoProxy
 public class AzureConfig {
 
     @Bean
     public ReactiveKafkaProducerTemplate<String, String> reactiveKafkaProducerTemplate(KafkaProperties properties) {
-        Map<String, Object> props = properties.buildProducerProperties();
+        Map<String, Object> props = properties.buildProducerProperties(null);
         return new ReactiveKafkaProducerTemplate<>(SenderOptions.create(props));
     }
 

@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!--
+  ~ Copyright (c) Koninklijke Philips N.V., 2021. All rights reserved.
+  -->
+<included>
+    <appender name="consoleAppender" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder class="net.logstash.logback.encoder.LoggingEventCompositeJsonEncoder">
+            <providers>
+                <timestamp>
+                    <fieldName>timestamp</fieldName>
+                    <timeZone>UTC</timeZone>
+                </timestamp>
+                <pattern>
+                    <pattern>
+                        {
+                        "level": "%level",
+                        "appName": "${appName}",
+                        "appVersion": "${appVersion}",
+                        "location": "%logger",
+                        "thread":"%thread",
+                        "server":"${HOSTNAME}",
+                        "message": "%message",
+                        "correlationId":"%X{x-correlation-id:-}",
+                        "traceId": "%X{traceId:-}:%X{spanId:-}",
+                        "environment": "${appEnv}",
+                        "client": "%X{clientId}"
+                        }
+                    </pattern>
+                </pattern>
+                <!-- Log all Markers instances -->
+                <logstashMarkers/>
+                <!-- Log all StructuredArgument instances -->
+                <arguments/>
+                <stackTrace>
+                    <throwableConverter class="net.logstash.logback.stacktrace.ShortenedThrowableConverter">
+                        <maxDepthPerThrowable>30</maxDepthPerThrowable>
+                        <maxLength>2048</maxLength>
+                        <shortenedClassNameLength>20</shortenedClassNameLength>
+                        <exclude>^sun\.reflect\..*\.invoke</exclude>
+                        <exclude>^net\.sf\.cglib\.proxy\.MethodProxy\.invoke</exclude>
+                        <rootCauseFirst>true</rootCauseFirst>
+                    </throwableConverter>
+                </stackTrace>
+            </providers>
+        </encoder>
+    </appender>
+    <root level="INFO">
+        <appender-ref ref="consoleAppender"/>
+    </root>
+</included>

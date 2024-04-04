@@ -1,8 +1,8 @@
 package com.philips.itaap.utility.serivce;
 
-import com.philips.itaap.ms.dev.base.exception.ServiceException;
 import com.philips.itaap.utility.dto.UsersDTO;
 import com.philips.itaap.utility.entity.User;
+import com.philips.itaap.utility.exception.ServiceException;
 import com.philips.itaap.utility.model.enums.Role;
 import com.philips.itaap.utility.repository.UserRepo;
 import lombok.extern.slf4j.XSlf4j;
