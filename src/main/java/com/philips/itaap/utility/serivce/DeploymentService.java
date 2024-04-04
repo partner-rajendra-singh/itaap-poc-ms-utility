@@ -4,22 +4,9 @@ import com.fasterxml.jackson.core.type.TypeReference;
 import com.philips.itaap.ms.dev.base.exception.ServiceException;
 import com.philips.itaap.utility.config.AzureProperties;
 import com.philips.itaap.utility.constant.AzureConstants;
-import com.philips.itaap.utility.dto.MicroservicesDTO;
-import com.philips.itaap.utility.entity.AccProd;
-import com.philips.itaap.utility.entity.Microservices;
-import com.philips.itaap.utility.entity.NonProd;
 import com.philips.itaap.utility.exception.AzureException;
 import com.philips.itaap.utility.model.AzureResponse;
-
-import com.philips.itaap.utility.model.deployment.BuildFolder;
-import com.philips.itaap.utility.model.deployment.FolderDetails;
-import com.philips.itaap.utility.model.deployment.Records;
-import com.philips.itaap.utility.model.deployment.RunDetails;
-import com.philips.itaap.utility.model.deployment.Record;
-import com.philips.itaap.utility.repository.AccProdRepo;
-import com.philips.itaap.utility.repository.DeploymentRepo;
-import com.philips.itaap.utility.repository.MicroservicesRepo;
-import com.philips.itaap.utility.repository.NonProdRepo;
+import com.philips.itaap.utility.model.deployment.*;
 import com.philips.itaap.utility.utils.Transformer;
 import lombok.extern.slf4j.XSlf4j;
 import net.logstash.logback.encoder.org.apache.commons.lang3.StringUtils;
@@ -33,13 +20,12 @@ import reactor.core.publisher.Mono;
 
 import java.util.*;
 import java.util.concurrent.atomic.AtomicLong;
-import java.util.concurrent.atomic.AtomicReference;
 import java.util.function.Consumer;
 import java.util.stream.Collectors;
 
 @Service
 @XSlf4j
-@SuppressWarnings("CPD-START")
+@SuppressWarnings({"CPD-START", "PMD"})
 public class DeploymentService {
 
     @Autowired
@@ -184,7 +170,7 @@ public class DeploymentService {
                                 && stage.getIdentifier().equalsIgnoreCase("dev")
                                 && (stage.getResult().equalsIgnoreCase("succeeded")
                                 || stage.getResult().equalsIgnoreCase("failed"))
-                                && !stage.getName().toLowerCase().contains("valid")) {
+                                && !stage.getName().toLowerCase(Locale.ROOT).contains("valid")) {
                             recordDev.add(stage);
                             currentBuildNumberDev.set(stage.getBuildID());
                         }
@@ -192,20 +178,20 @@ public class DeploymentService {
                                 && stage.getIdentifier().equalsIgnoreCase("test")
                                 && (stage.getResult().equalsIgnoreCase("succeeded")
                                 || stage.getResult().equalsIgnoreCase("failed"))
-                                && !stage.getName().toLowerCase().contains("valid")) {
+                                && !stage.getName().toLowerCase(Locale.ROOT).contains("valid")) {
                             recordTest.add(stage);
                             currentBuildNumberTest.set(stage.getBuildID());
                         }
                         if (stage.getIdentifier().equalsIgnoreCase("acc")
                                 && (stage.getResult().equalsIgnoreCase("succeeded")
                                 || stage.getResult().equalsIgnoreCase("failed"))
-                                && !stage.getName().toLowerCase().contains("valid")) {
+                                && !stage.getName().toLowerCase(Locale.ROOT).contains("valid")) {
                             recordAcc.add(stage);
                         }
                         if (stage.getIdentifier().equalsIgnoreCase("prod")
                                 && (stage.getResult().equalsIgnoreCase("succeeded")
                                 || stage.getResult().equalsIgnoreCase("failed"))
-                                && !stage.getName().toLowerCase().contains("valid")) {
+                                && !stage.getName().toLowerCase(Locale.ROOT).contains("valid")) {
                             recordProd.add(stage);
                         }
                     }));

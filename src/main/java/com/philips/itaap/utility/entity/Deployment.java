@@ -8,7 +8,6 @@ import org.hibernate.annotations.Where;
 import javax.persistence.*;
 import java.util.Date;
 import java.util.List;
-import java.util.Set;
 
 @Data
 @Builder
@@ -17,6 +16,7 @@ import java.util.Set;
 @NoArgsConstructor
 @Table(name = "deployment")
 @EqualsAndHashCode(exclude = {"deploymentAcc", "deploymentProd"})
+@SuppressWarnings("PMD")
 public class Deployment {
     @Id
     @Column(name = "id", nullable = false)
