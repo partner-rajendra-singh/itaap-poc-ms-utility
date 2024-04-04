@@ -1,19 +1,19 @@
 package com.philips.itaap.utility.serivce;
 
 import com.fasterxml.jackson.core.type.TypeReference;
-import com.philips.itaap.ms.dev.base.exception.ServiceException;
 import com.philips.itaap.utility.config.AzureProperties;
 import com.philips.itaap.utility.constant.AzureConstants;
 import com.philips.itaap.utility.constant.RaquestStatus;
 import com.philips.itaap.utility.entity.AzureVariablesEntity;
+import com.philips.itaap.utility.exception.ServiceException;
 import com.philips.itaap.utility.model.*;
 import com.philips.itaap.utility.repository.AzureVariablesRepo;
 import com.philips.itaap.utility.utils.Transformer;
-import lombok.extern.slf4j.XSlf4j;
-import net.logstash.logback.encoder.org.apache.commons.lang3.StringUtils;
+import lombok.extern.slf4j.Slf4j;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
-import org.springframework.http.HttpStatus;
+import org.springframework.http.HttpStatusCode;
 import org.springframework.stereotype.Service;
 import org.springframework.web.reactive.function.client.WebClient;
 import org.springframework.web.util.UriBuilder;
@@ -29,7 +29,7 @@ import java.util.function.Function;
 import java.util.stream.Collectors;
 
 @Service
-@XSlf4j
+@Slf4j
 @SuppressWarnings({"PMD", "CPD-START"})
 public class AzureService {
 
@@ -135,12 +135,12 @@ public class AzureService {
      * @return {@link WebClient.ResponseSpec}
      */
     private WebClient.ResponseSpec getOnStatus(WebClient.ResponseSpec responseSpec) {
-        return responseSpec.onStatus(HttpStatus::isError, response ->
+        return responseSpec.onStatus(HttpStatusCode::isError, response ->
                 response
                         .bodyToMono(String.class)
                         .flatMap(error -> {
                             log.info("Exception Occurred -> {}", error);
-                            return Mono.error(new ServiceException(response.statusCode(), response.rawStatusCode(), error));
+                            return Mono.error(new ServiceException(response.statusCode(), response.statusCode().value(), error));
                         }));
     }
 

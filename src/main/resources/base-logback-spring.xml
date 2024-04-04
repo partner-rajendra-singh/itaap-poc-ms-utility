@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<included>
+    <!-- DEVELOPER CONSOLE & /tmp/spring.log -->
+    <springProfile name="dev">
+        <include resource="org/springframework/boot/logging/logback/defaults.xml"/>
+        <!--standard spring-boot console logging -->
+        <appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
+            <encoder>
+                <pattern>%clr(%d{yyyy-MM-dd HH:mm:ss.SSS}){faint} %clr(${LOG_LEVEL_PATTERN:-%5p}) %X{clientId:-}:%X{userId:-}:%X{subject:-} %clr(${PID:- }){magenta} %clr(---){faint} %clr([%15.15t]){faint} %clr(%-40.40logger{39}){cyan} %clr(:){faint} %m%n${LOG_EXCEPTION_CONVERSION_WORD:-%wEx}</pattern>
+            </encoder>
+        </appender>
+        <root level="INFO">
+            <appender-ref ref="CONSOLE"/>
+        </root>
+    </springProfile>
+
+    <!-- environments other than dev-->
+    <springProfile name="!dev">
+        <!--
+            'appName' - mandatory property.
+            Spring-boot runtime allows to easily grab it from application.yml by using "springProperty" tag.
+            In other than spring-boot environments - use simple logback's <property name = "appName" value = "APP-NAME" />
+        -->
+        <springProperty name="appName" source="spring.application.name"/>
+        <springProperty name="appVersion" source="app.version"/>
+        <springProperty name="appEnv" source="app.env"/>
+        <!-- =================================== CONSOLE SECTION ==================================-->
+        <!--
+            Console logging standard output.
+        -->
+        <include resource="logback-console-json.xml"/>
+
+    </springProfile>
+
+</included>

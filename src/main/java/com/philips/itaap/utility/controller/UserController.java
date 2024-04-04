@@ -1,8 +1,8 @@
 package com.philips.itaap.utility.controller;
 
-import com.philips.itaap.ms.dev.base.exception.ServiceException;
 import com.philips.itaap.utility.dto.UsersDTO;
 import com.philips.itaap.utility.entity.User;
+import com.philips.itaap.utility.exception.ServiceException;
 import com.philips.itaap.utility.model.enums.Role;
 import com.philips.itaap.utility.serivce.UserService;
 import lombok.extern.slf4j.XSlf4j;
@@ -69,7 +69,7 @@ public class UserController {
         if (log.isErrorEnabled()) {
             log.error("handleValidationExceptions() : errorDesc -> {}", errorDesc);
         }
-        throw new ServiceException(ex.getStatus(), ex.getStatus().value(), errorDesc.toString());
+        throw new ServiceException(ex.getStatusCode(), ex.getStatusCode().value(), errorDesc.toString());
     }
 
 }

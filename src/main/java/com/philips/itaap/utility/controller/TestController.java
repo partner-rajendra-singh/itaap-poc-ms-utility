@@ -1,6 +1,6 @@
 package com.philips.itaap.utility.controller;
 
-import com.philips.itaap.ms.dev.base.exception.ServiceException;
+import com.philips.itaap.utility.exception.ServiceException;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;

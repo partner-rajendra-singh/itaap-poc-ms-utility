@@ -4,22 +4,17 @@ import com.philips.itaap.utility.config.AzureProperties;
 import com.philips.itaap.utility.entity.AzureVariablesEntity;
 import com.philips.itaap.utility.model.AzureVariablesRequest;
 import com.philips.itaap.utility.serivce.AzureService;
-import lombok.extern.slf4j.XSlf4j;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import reactor.core.publisher.Mono;
 
 import java.util.List;
 
 @RestController
-@XSlf4j
+@Slf4j
 @SuppressWarnings({"CPD-START"})
 public class AzureAdminController {
-
     @Autowired
     AzureService azureService;
 
