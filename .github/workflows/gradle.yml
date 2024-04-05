@@ -48,11 +48,11 @@ jobs:
     # - name: Build with Gradle 8.5
     #   run: gradle build
 
-    - name: Install Docker Buildx
-      run: |
-        docker build --platform=local -o . git://github.com/docker/buildx
-        mkdir -p ~/.docker/cli-plugins
-        mv buildx ~/.docker/cli-plugins/docker-buildx
+    # - name: Install Docker Buildx
+      # run: |
+        # docker build --platform=local -o . git://github.com/docker/buildx
+        # mkdir -p ~/.docker/cli-plugins
+        # mv buildx ~/.docker/cli-plugins/docker-buildx
       
     - name: Login to DockerHub
       uses: docker/login-action@v1
@@ -60,13 +60,11 @@ jobs:
         username: ${{ secrets.DOCKERHUB_USERNAME }}
         password: ${{ secrets.DOCKERHUB_PASSWORD }}
         
-    - name: Build and Push Docker image with Buildx
-      run: |
-        docker buildx create --use
-        docker buildx build \
-          --platform linux/amd64,linux/arm64 \
-          -t rajendra131094/itaap-poc-ms-utility:latest \
-          --push
+    - name: Build Docker image
+      run: docker build -t rajendra131094/itaap-poc-ms-utility:latest
+    - name: Push Docker image
+      run: docker push rajendra131094/itaap-poc-ms-utility:latest
+
   
   dependency-submission:
 
