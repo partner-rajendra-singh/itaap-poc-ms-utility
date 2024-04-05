@@ -57,13 +57,16 @@ jobs:
       with:
         username: ${{ secrets.DOCKERHUB_USERNAME }}
         password: ${{ secrets.DOCKERHUB_PASSWORD }}
-        
+    - name: Set Dynamic Tag
+      id: tag
+      run: echo "::set-output name=tag::$(date +%s)"
+      
     - name: Build and Push Docker image
       uses: docker/build-push-action@v5
       with:
         context: . 
         push: true
-        tags: rajendra131094/itaap-poc-ms-utility:$(date +%s)
+        tags: ${{ secrets.DOCKERHUB_USERNAME }}/itaap-poc-ms-utility:${{ steps.tag.outputs.tag }}
   
   dependency-submission:
 
