@@ -5,7 +5,7 @@ FROM adoptopenjdk/openjdk11:jdk-11.0.10_9-alpine-slim
 COPY . /usr/app
 WORKDIR /usr/app
 # RUN chmod +x mvnw && ./gradlew clean
-COPY /usr/app/itaap-poc-ms-utility.jar /app/application.jar
+COPY build/libs/itaap-poc-ms-utility.jar /app/application.jar
 
 ENTRYPOINT java \
     -XX:+UseG1GC \
