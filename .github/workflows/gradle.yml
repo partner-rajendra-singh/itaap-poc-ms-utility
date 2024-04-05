@@ -57,9 +57,12 @@ jobs:
       with:
         username: ${{ secrets.DOCKERHUB_USERNAME }}
         password: ${{ secrets.DOCKERHUB_PASSWORD }}
-    - name: Set Dynamic Tag
+    - name: Create Dynamic Tag
       id: tag
-      run: ::set-output name=tag::$(date +%s) | echo ${{ steps.tag.outputs.tag }}
+      run: echo "::set-output name=tag::$(date +%s)"
+      
+    - name: Image Tag
+      run: echo ${{ steps.tag.outputs.tag }}
       
     - name: Build and Push Docker image
       uses: docker/build-push-action@v5
