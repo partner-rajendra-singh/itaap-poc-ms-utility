@@ -3,7 +3,6 @@ package com.philips.itaap.utility.config;
 import org.springframework.boot.autoconfigure.kafka.KafkaProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.EnableAspectJAutoProxy;
 import org.springframework.http.client.reactive.ReactorClientHttpConnector;
 import org.springframework.kafka.core.reactive.ReactiveKafkaProducerTemplate;
 import org.springframework.web.reactive.function.client.WebClient;
@@ -14,7 +13,6 @@ import java.time.Duration;
 import java.util.Map;
 
 @Configuration
-@EnableAspectJAutoProxy
 public class AzureConfig {
 
     @Bean
