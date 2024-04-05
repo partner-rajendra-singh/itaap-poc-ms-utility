@@ -2,8 +2,10 @@ FROM adoptopenjdk/openjdk11:jdk-11.0.10_9-alpine-slim
 
 # RUN mkdir -p /app/
 # RUN apk add --update ttf-dejavu
-WORKDIR /app
-COPY build/libs/itaap-poc-ms-utility-1.0.0.jar /app/application.jar
+COPY . /usr/app
+WORKDIR /usr/app
+# RUN chmod +x mvnw && ./gradlew clean
+COPY /usr/app/itaap-poc-ms-utility-1.0.0.jar /app/application.jar
 
 ENTRYPOINT java \
     -XX:+UseG1GC \
