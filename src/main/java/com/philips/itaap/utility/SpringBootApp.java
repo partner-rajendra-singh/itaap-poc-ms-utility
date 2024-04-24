@@ -7,7 +7,8 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
 @SpringBootApplication
-//@EnableJpaRepositories(basePackages = {"com.philips.itaap.utility.repository.*"})
+@EnableJpaRepositories(basePackages = {"com.philips.itaap.utility.repository.*"})
+@ComponentScan(basePackages = {"com.philips.itaap.utility.repository.*"})
 @EntityScan(basePackages = {"com.philips.itaap.utility.entity.*"})
 public class SpringBootApp {
     public static void main(String[] args) {
